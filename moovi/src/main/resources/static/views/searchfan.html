@@ -1,0 +1,33 @@
+<div class="container-fluid" ng-controller="FanSearchController as fs">
+    <h1>Fan Search</h1>
+    <div class="input-group mb-3" align="center">
+        <input ng-model="username" type="text" class="form-control" placeholder="Search Fan" aria-label="Search Fan"
+               aria-describedby="basic-addon2" ng-keypress="myKeyPress($event,username)" ng-change="searchFanByUsername(username)">
+        <div class="input-group-append">
+            <button ng-click="fs.searchFanByUsername(username)" class="btn btn-outline-secondary" type="button">Search</button>
+        </div>
+    </div>
+    <h2 ng-hide="myVal">{{allFansHeading}}</h2>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Username</th>
+            <th scope="col">Email ID</th>
+            <th scope="col">Date of Birth</th>
+            <th scope="col">Description</th>
+            <th scope="col"> </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat = "fan in fans">
+            <td>{{fan.firstName}} {{fan.lastName}}</td>
+            <td>{{fan.username}}</td>
+            <td>{{fan.email}}</td>
+            <td>{{fan.dob}}</td>
+            <td>{{fan.fanDescription}}</td>
+            <td><button type="button" class="btn btn-success" ng-click="fs.followThisFan(fan.username)">Follow</button></td>
+        </tr>
+        </tbody>
+    </table>
+</div>

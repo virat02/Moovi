@@ -1,0 +1,32 @@
+<div class="container-fluid" ng-controller="MovieLikedController as ml">
+    <h1>Liked Movies</h1>
+    <h2>{{allMoviesLikedHeading}}</h2>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Movie Name</th>
+            <th scope="col">Movie Overview</th>
+            <th scope="col">Movie Poster</th>
+            <th scope="col">Movie IMDB Rating</th>
+            <th scope="col">Movie revenue</th>
+            <th scope="col">Movie runtime</th>
+            <th scope="col">Release Status</th>
+            <th scope="col" ng-show="usT==='fan' || usT==='admin'"> </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat = "movie in movies | filter:movieName">
+            <td><a href="#/details/{{movie.movieName}}">{{movie.movieName}}</a></td>
+            <input ng-model="movieName" type="text" class="form-control" placeholder="Search Movie By Name"
+                   aria-label="Search Movie Name" aria-describedby="basic-addon2">
+            <td>{{movie.overview}}</td>
+            <td><img ng-src="{{movie.posterSRC}}" height="150px"></td>
+            <td>{{movie.imdbRating}}</td>
+            <td>${{movie.revenue}}</td>
+            <td>{{movie.runtime}} minutes</td>
+            <td>{{movie.releaseStatus}}</td>
+            <td><button type="button" class="btn btn-danger" ng-show="usT==='fan' || usT==='admin'" ng-click="ml.deleteMovie(movie.movieId)">Remove</button></td>
+        </tr>
+        </tbody>
+    </table>
+</div>

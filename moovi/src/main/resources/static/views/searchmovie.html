@@ -1,0 +1,46 @@
+<div class="container-fluid" ng-controller="MovieSearchController as model">
+    <h1>Movie Search</h1>
+    <div class="input-group mb-3" align="center">
+        <input ng-model="title" type="text" class="form-control" placeholder="Search Movie" aria-label="Search Movie"
+               aria-describedby="basic-addon2" ng-keypress="myKeyPress($event,title)" ng-change="searchMovieByTitle(title)">
+        <div class="input-group-append">
+            <button ng-click="model.searchMovieByTitle(title)" class="btn btn-outline-secondary" type="button">Search</button>
+        </div>
+    </div>
+    <h2 ng-hide="myVal">{{nowplayingheading}}</h2>
+    <h3 ng-hide="myVal1">{{loading}}</h3>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Movie Name</th>
+            <th scope="col">Poster</th>
+            <th scope="col">Release Date</th>
+            <th scope="col">IMDb Rating</th>
+            <th scope="col">Revenue</th>
+            <th scope="col">Runtime</th>
+            <th scope="col">Release Status</th>
+            <th scope="col">IMDb Link</th>
+            <th scope="col" ng-show="userT==='fan'"> </th>
+            <th scope="col" ng-show="userT==='fan'"> </th>
+            <th scope="col" ng-show="userT==='critic'"> </th>
+            <th scope="col" ng-show="userT==='critic'"> </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat = "movie in movies">
+            <td><button type="button" class="btn btn-light" ng-click="model.changeToDetailsView(movie.movieId)">{{movie.movieName}}</button></td>l
+            <td><img ng-src="{{movie.posterSRC}}" height="150px"></td>
+            <td>{{movie.releaseDate}}</td>
+            <td>{{movie.imdbRating}}</td>
+            <td>${{movie.revenue}}</td>
+            <td>{{movie.runtime}} minutes</td>
+            <td>{{movie.releaseStatus}}</td>
+            <td><a href="http://www.imdb.com/title/{{movie.imdbId}}">{{movie.movieName}} IMDb</a></td>
+            <td><button type="button" class="btn btn-success" ng-show="userT==='fan'" ng-click="model.likeThisMovie(movie.movieId)">Like</button></td>
+            <td><button type="button" class="btn btn-danger" ng-show="userT==='fan'" ng-click="model.dislikeThisMovie(movie.movieId)">Dislike</button></td>
+            <td><button type="button" class="btn btn-warning" ng-show="userT==='critic'" ng-click="model.changeToReviewView(movie.movieName,movie.movieId)">Write Review</button></td>
+            <td><button type="button" class="btn btn-primary" ng-show="userT==='critic'" ng-click="model.recommendThisMovie(movie.movieId)">Recommend</button></td>
+        </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,44 @@
+<div class="container-fluid" ng-controller="EditReviewController as er">
+    <h1>All Review</h1>
+    <table class="table" width="100%">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Review ID</th>
+            <th scope="col">Review Description</th>
+            <th scope="col">Rating</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><input type="text" ng-model="reviewId"></td>
+            <td><input type="text" ng-model="review"></td>
+            <td><label ><span>Rating</span><select name="field4" class="select-field" ng-model="rating">
+                <option value="Excellent">Excellent</option>
+                <option value="Superb">Superb</option>
+                <option value="Nice">Nice</option>
+                <option value="Fair">Fair</option>
+                <option value="Poor">Poor</option>
+            </select></label></td>
+            <td><button type="button" class="btn btn-success" ng-click="er.addReview(reviewId, review, rating)">Add</button></td>
+        </tr>
+        <tr ng-show="eBox">
+            <td>{{rId.reviewId}}</td>
+            <td><input type="text" ng-model="review1" placeholder="Review" value="{{rId.review}}"></td>
+            <td><label ><span>Rating</span><select name="field4" class="select-field" ng-model="rating1">
+                <option value="Excellent">Excellent</option>
+                <option value="Superb">Superb</option>
+                <option value="Nice">Nice</option>
+                <option value="Fair">Fair</option>
+                <option value="Poor">Poor</option>
+            </select></label></td>
+            <td><button type="button" class="btn btn-primary" ng-click="er.updateReview(rId.reviewId, review1, rating1)">Submit Changes</button></td>
+        </tr>
+        <tr ng-repeat = "review in reviews">
+            <td>{{review.reviewId}}</td>
+            <td>{{review.review}}</td>
+            <td>{{review.rating}}</td>
+            <td><button type="button" class="btn btn-success" ng-click="er.showEditBoxes(review)">Edit</button></td>
+            <td><button type="button" class="btn btn-danger" ng-click="er.deleteReview(review.reviewId)">Delete</button></td>
+        </tbody>
+    </table>
+</div>

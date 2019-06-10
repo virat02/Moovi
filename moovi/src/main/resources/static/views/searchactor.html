@@ -1,0 +1,39 @@
+<div class="container-fluid" ng-controller="ActorSearchController as ac">
+    <h1>Actor Search</h1>
+    <div class="input-group mb-3" align="center">
+        <input ng-model="name" type="text" class="form-control" placeholder="Search Actor" aria-label="Search Actor"
+               aria-describedby="basic-addon2" ng-keypress="myKeyPress($event,name)" ng-change="searchActorByName(name)">
+        <div class="input-group-append">
+            <button ng-click="ac.searchActorByName(name)" class="btn btn-outline-secondary" type="button">Search</button>
+        </div>
+    </div>
+    <h2 ng-hide="myVal">{{mostPopularHeading}}</h2>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Actor Name</th>
+            <th scope="col">Biography</th>
+            <th scope="col">Picture</th>
+            <th scope="col">Date of Birth</th>
+            <th scope="col">Date of Death</th>
+            <th scope="col">Popularity Score</th>
+            <th scope="col">IMDb Link</th>
+            <th scope="col" ng-show="userT==='fan'"> </th>
+            <th scope="col" ng-show="userT==='adrecruiter'"> </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat = "actor in actors">
+            <td><button type="button" class="btn btn-light" ng-click="ac.changeToDetailsView(actor.actorId)">{{actor.actorName}}</button></td>
+            <td>{{actor.biography}}</td>
+            <td><img ng-src="{{actor.profilePicture}}" height="150px"></td>
+            <td>{{actor.dob}}</td>
+            <td>{{actor.dod}}</td>
+            <td>{{actor.actorPopularity}}</td>
+            <td><a href="http://www.imdb.com/name/{{actor.imdbId}}">{{actor.actorName}} IMDb</a></td>
+            <td><button type="button" class="btn btn-primary" ng-show="userT==='fan'" ng-click="ac.followThisActor(actor.actorId)">Follow</button></td>
+            <td><button type="button" class="btn btn-success" ng-show="userT==='adrecruiter'" ng-click="ac.recruitThisActor(actor.actorId)">Recruit</button></td>
+        </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MooviApp">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link href="css/sidebysidediv.css" rel="stylesheet">
+    <script src="js/app.js"></script>
+    <script src="js/config.js"></script>
+    <script src="controllers/moviesearch.controller.js"></script>
+    <script src="controllers/actorsearch.controller.js"></script>
+    <script src="controllers/fansearch.controller.js"></script>
+    <script src="controllers/criticsearch.controller.js"></script>
+    <script src="controllers/moviedetails.controller.js"></script>
+    <script src="controllers/login.controller.js"></script>
+    <script src="controllers/register.controller.js"></script>
+    <script src="controllers/managethistheatre.controller.js"></script>
+    <script src="controllers/review.controller.js"></script>
+    <script src="controllers/mypage.controller.js"></script>
+    <script src="controllers/admin.controller.js"></script>
+    <script src="controllers/navbar.controller.js"></script>
+    <script src="controllers/listoffansfollowing.controller.js"></script>
+    <script src="controllers/listofcriticsfollowing.controller.js"></script>
+    <script src="controllers/listofactorsfollowing.controller.js"></script>
+    <script src="controllers/listofmoviesliked.controller.js"></script>
+    <script src="controllers/listofmoviesdisliked.controller.js"></script>
+    <script src="controllers/listoffansfollowedbyoffan.controller.js"></script>
+    <script src="controllers/listoffansfollowedbyofcritic.controller.js"></script>
+    <script src="controllers/listofmoviesrecommended.controller.js"></script>
+    <script src="controllers/listofmoviesreviewed.controller.js"></script>
+    <script src="controllers/listofactorsrecruited.controller.js"></script>
+    <script src="controllers/listoftheatresmanaged.controller.js"></script>
+    <script src="controllers/editmovie.controller.js"></script>
+    <script src="controllers/editactor.controller.js"></script>
+    <script src="controllers/editfan.controller.js"></script>
+    <script src="controllers/editcritic.controller.js"></script>
+    <script src="controllers/editadrecruiter.controller.js"></script>
+    <script src="controllers/editreview.controller.js"></script>
+    <script src="controllers/edittheatre.controller.js"></script>
+    <script src="controllers/edittheatremanager.controller.js"></script>
+    <script src="controllers/movierecommendationlisting.controller.js"></script>
+    <script src="controllers/moviedetails.controller.js"></script>
+    <script src="controllers/actordetails.controller.js"></script>
+    <meta charset="UTF-8">
+    <title>Moovi</title>
+</head>
+<body>
+
+<!-- NAVIGATION BAR CODE -->
+
+<nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Moovi</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" ng-controller="NavbarController as nc">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#!mypage" ng-show="typeRole==='fan' || typeRole==='critic' || typeRole==='theatremanager' || typeRole==='adrecruiter'">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#!admin" ng-show="typeRole==='admin'">Admin Panel <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#!searchMovie">Search Movie</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#!searchActor">Search Actor</a>
+            </li>
+            <li class="nav-item" ng-show="typeRole==='fan'">
+                <a class="nav-link" href="#!searchFan">Search Fan</a>
+            </li>
+            <li class="nav-item" ng-show="typeRole==='fan'">
+                <a class="nav-link" href="#!searchCritic">Search Critic</a>
+            </li>
+            <li class="nav-item" ng-show="typeRole===null">
+                <a class="nav-link" href="#!login">Login</a>
+            </li>
+            <li class="nav-item" ng-show="typeRole===null">
+                <a class="nav-link" href="#!register">Registration</a>
+            </li>
+            <li class="nav-item" ng-show="typeRole==='theatremanager'">
+                <a class="nav-link" href="#!manageThisTheatre">Register a Theatre</a>
+            </li>
+            <li class="nav-item" ng-show="typeRole!==null" ng-click="nc.resetUserType()">
+                <a class="nav-link" href="#">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- END OF NAVIGATION BAR CODE -->
+
+<div ng-view>
+
+</div>
+
+</body>
+</html>

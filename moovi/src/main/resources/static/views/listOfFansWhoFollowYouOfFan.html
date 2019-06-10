@@ -1,0 +1,28 @@
+<div class="container-fluid" ng-controller="FansFollowedOfFanController as fffb" >
+    <h1>Fans Following</h1>
+    <h2>{{allFansHeading}}</h2>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Fan Name</th>
+            <th scope="col">Fan Username</th>
+            <th scope="col">Fan Description</th>
+            <th scope="col">Fan birth date</th>
+            <th scope="col">Fan email id</th>
+            <th scope="col" ng-show="usT==='fan' || usT==='admin'"> </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat = "fan in fans | filter:fanUsername">
+            <td>{{fan.firstName}} {{fan.lastName}}</td>
+            <input ng-model="fanUsername" type="text" class="form-control" placeholder="Search Fan By Username"
+                   aria-label="Search Fan username" aria-describedby="basic-addon2">
+            <td>{{fan.username}}</td>
+            <td>{{fan.criticDescription}}</td>
+            <td>{{fan.dob}}</td>
+            <td>{{fan.email}}</td>
+            <td><button type="button" class="btn btn-danger" ng-show="usT==='fan' || usT==='admin'" ng-click="fffb.unfollowFan(fan.username)">Unfollow</button>
+        </tr>
+        </tbody>
+    </table>
+</div>

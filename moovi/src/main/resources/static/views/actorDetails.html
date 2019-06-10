@@ -1,0 +1,26 @@
+<link href="../css/details.css" rel="stylesheet">
+<body ng-controller="ActorDetailsController as adc">
+<div class="content">
+    <h1>{{actor.actorName}}</h1>
+    <div>
+        <h3>
+            Biography:
+        </h3>
+        <h6>
+            {{actor.biography}}
+        </h6>
+        <h3>
+            Casted In:
+        </h3>
+        <div class="card-group">
+            <div class="card" ng-repeat="movie in movies">
+                <img class="card-img-top" src="{{movie.posterSRC}}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title"><a href="https://www.imdb.com/title/{{movie.imdbId}}/">{{movie.movieName}}</a></h5>
+                    <p class="card-text"><small class="text-muted">IMDb Rating: {{movie.imdbRating}}</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>

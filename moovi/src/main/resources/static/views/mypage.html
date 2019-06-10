@@ -1,0 +1,104 @@
+<div ng-controller="MyPageController as mp">
+    <h1 ng-show="uT==='admin'">{{f}}'s Page</h1>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card" ng-show="uT==='fan' || (d==='Fan' && uT==='admin')">
+                <div class="card-body">
+                    <h5 class="card-title">Followed Fans</h5>
+                    <p class="card-text">Shows the list of fans that you are following.</p>
+                    <a href="#!listOfFansYouFollow" class="btn btn-primary">Show</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card" ng-show="uT==='fan' || (d==='Fan' && uT==='admin')">
+                <div class="card-body">
+                    <h5 class="card-title">Critics Followed</h5>
+                    <p class="card-text">Shows the list of critics that you are following.</p>
+                    <a href="#!listOfCriticsYouFollow" class="btn btn-primary">Show</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card" ng-show="uT==='fan' || (d==='Fan' && uT==='admin')">
+                <div class="card-body">
+                    <h5 class="card-title">Actors Followed</h5>
+                    <p class="card-text">Shows the list of actors that you are following.</p>
+                    <a href="#!listOfActorsYouFollow" class="btn btn-primary">Show</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card" ng-show="uT==='fan' || (d==='Fan' && uT==='admin')">
+                <div class="card-body">
+                    <h5 class="card-title">Liked Movies</h5>
+                    <p class="card-text">Shows the list of movies you liked.</p>
+                    <a href="#!listOfMoviesYouLiked" class="btn btn-primary">Show</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card" ng-show="uT==='fan' || (d==='Fan' && uT==='admin')">
+                <div class="card-body">
+                    <h5 class="card-title">Disliked Movies</h5>
+                    <p class="card-text">Shows the list of movies you disliked.</p>
+                    <a href="#!listOfMoviesYouDisliked" class="btn btn-primary">Show</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card" ng-show="uT==='critic' || (d==='Critic' && uT==='admin')">
+                <div class="card-body">
+                    <h5 class="card-title">Movies Recommended</h5>
+                    <p class="card-text">Shows the list of movies you recommended.</p>
+                    <a href="#!listOfMoviesYouRecommended" class="btn btn-primary">Show</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card" ng-show="uT==='critic'">
+                <div class="card-body">
+                    <h5 class="card-title">Movies Reviewed</h5>
+                    <p class="card-text">Shows the list of movies you reviewed.</p>
+                    <a href="#!listOfMoviesYouReviewed" class="btn btn-primary">Show</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card" ng-show="uT==='adrecruiter' || (d==='AdRecruiter' && uT==='admin')">
+                <div class="card-body">
+                    <h5 class="card-title">Actors Recruited</h5>
+                    <p class="card-text">Shows the list of actors you recruited.</p>
+                    <a href="#!listOfActorsYouRecruited" class="btn btn-primary">Show</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card" ng-show="uT==='theatremanager' || (d==='TheatreManager' && uT==='admin')">
+                <div class="card-body">
+                    <h5 class="card-title">Theatres Managed</h5>
+                    <p class="card-text">Shows the list of theatres managed by you.</p>
+                    <a href="#!listOfTheatresManaged" class="btn btn-primary">Show</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card" ng-show="uT==='fan' || (d==='Fan' && uT==='admin')">
+                <div class="card-body">
+                    <h5 class="card-title">Your Followers</h5>
+                    <p class="card-text">Shows the list of fans who follow you.</p>
+                    <a href="#!listOfFansWhoFollowYouOfFan" class="btn btn-primary">Show</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card" ng-show="uT==='critic' || (d==='Critic' && uT==='admin')">
+                <div class="card-body">
+                    <h5 class="card-title">Your Followers</h5>
+                    <p class="card-text">Shows the list of fans who follow you.</p>
+                    <a href="#!listOfFansWhoFollowYouOfCritic" class="btn btn-primary">Show</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

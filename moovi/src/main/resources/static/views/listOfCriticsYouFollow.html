@@ -1,0 +1,31 @@
+<div class="container-fluid" ng-controller="CriticFollowingController as cf">
+    <h1>Critics Followed</h1>
+    <h2>{{allCriticsHeading}}</h2>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Critic Name</th>
+            <th scope="col">Critic Username</th>
+            <th scope="col">Critic Description</th>
+            <th scope="col">Critic birth date</th>
+            <th scope="col">Critic email id</th>
+            <th scope="col" ng-show="usT==='fan' || usT==='admin'"> </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat = "critic in critics | filter:criticUsername">
+            <td>{{critic.firstName}} {{critic.lastName}}</td>
+            <input ng-model="criticUsername" type="text" class="form-control" placeholder="Search Critic By Username"
+                   aria-label="Search Critic username" aria-describedby="basic-addon2">
+            <td>
+                <button type="button" class="btn btn-primary" ng-click="cf.showRecommendedMovies(critic.username)">movie recommendations by {{critic.username}}</button>
+            </td>
+            <td>{{critic.username}}</td>
+            <td>{{critic.criticDescription}}</td>
+            <td>{{critic.dob}}</td>
+            <td>{{critic.email}}</td>
+            <td><button type="button" class="btn btn-danger" ng-show="usT==='fan' || usT==='admin'" ng-click="cf.unfollowCritic(critic.username)">Unfollow</button>
+        </tr>
+        </tbody>
+    </table>
+</div>

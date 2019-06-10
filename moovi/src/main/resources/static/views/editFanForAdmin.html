@@ -1,0 +1,52 @@
+<div class="container-fluid" ng-controller="EditFanController as ef">
+    <h1>All Fans</h1>
+    <table class="table" width="100%">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Fan ID</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Username</th>
+            <th scope="col">Password</th>
+            <th scope="col">Email ID</th>
+            <th scope="col">Date of Birth</th>
+            <th scope="col">Fan Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><input type="text" ng-model="userId"></td>
+            <td><input type="text" ng-model="firstName"></td>
+            <td><input type="text" ng-model="lastName"></td>
+            <td><input type="text" ng-model="username"></td>
+            <td><input type="text" ng-model="password"></td>
+            <td><input type="text" ng-model="emailId"></td>
+            <td><input type="text" ng-model="dob"></td>
+            <td><input type="text" ng-model="fanDescription"></td>
+            <td><button type="button" class="btn btn-success" ng-click="ef.addFan(userId, firstName, lastName, username, password, emailId, dob, fanDescription)">Add</button></td>
+        </tr>
+        <tr ng-show="eBox">
+            <td>{{fId.userId}}</td>
+            <td><input type="text" ng-model="firstName1" placeholder="First Name" value="{{fId.firstName}}"></td>
+            <td><input type="text" ng-model="lastName1" placeholder="Last Name" value="{{fId.lastName}}"></td>
+            <td><input type="text" ng-model="username1" placeholder="Username" value="{{fId.username}}"></td>
+            <td><input type="text" ng-model="password1" placeholder="Password" value="{{fId.password}}"></td>
+            <td><input type="text" ng-model="emailId1" placeholder="Email ID" value="{{fId.email}}"></td>
+            <td><input type="text" ng-model="dob1" placeholder="Date of Birth" value="{{fId.dob}}"></td>
+            <td><input type="text" ng-model="fanDescription1" placeholder="Fan Description" value="{{fId.fanDescription}}"></td>
+            <td><button type="button" class="btn btn-primary" ng-click="ef.updateFan(firstName1, lastName1, username1, password1, emailId1, dob1, fanDescription1, fId.username)">Submit Changes</button></td>
+        </tr>
+        <tr ng-repeat = "fan in fans">
+            <td>{{fan.userId}}</td>
+            <td>{{fan.firstName}}</td>
+            <td>{{fan.lastName}}</td>
+            <td><button type="button" class="btn btn-primary" ng-click="ef.changeViewToFanMyPage(fan.username, fan.dtype)">{{fan.username}}</button></td>
+            <td>{{fan.password}}</td>
+            <td>{{fan.email}}</td>
+            <td>{{fan.dob}}</td>
+            <td>{{fan.fanDescription}}</td>
+            <td><button type="button" class="btn btn-success" ng-click="ef.showEditBoxes(fan)">Edit</button></td>
+            <td><button type="button" class="btn btn-danger" ng-click="ef.deleteFan(fan.username)">Delete</button></td>
+        </tbody>
+    </table>
+</div>

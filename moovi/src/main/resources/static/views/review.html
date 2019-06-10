@@ -1,0 +1,20 @@
+<link href="../css/review.css" rel="stylesheet">
+<div>
+    <div class="form-style-2">
+        <div class="form-style-2-heading">Write Review for {{mName}}</div>
+        <form id="reviewForm" ng-controller="ReviewController as rev">
+            <label ><span>Rating</span>
+                <select name="field4" class="select-field" ng-model="field">
+                    <option value="Excellent">Excellent</option>
+                    <option value="Superb">Superb</option>
+                    <option value="Nice">Nice</option>
+                    <option value="Fair">Fair</option>
+                    <option value="Poor">Poor</option>
+                </select>
+            </label>
+            <label><span>Write Review <span class="required">*</span></span><textarea name="field5" class="textarea-field" ng-model="reviewVal"></textarea></label>
+
+            <label><span>&nbsp;</span><input type="submit" ng-click="rev.writeReview(field,reviewVal)" value="Submit" /></label>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="container-fluid" ng-controller="CriticSearchController as cr">
+    <h1>Critic Search</h1>
+    <div class="input-group mb-3" align="center">
+        <input ng-model="username" type="text" class="form-control" placeholder="Search Critic" aria-label="Search Critic"
+               aria-describedby="basic-addon2" ng-keypress="myKeyPress($event,username)" ng-change="searchCriticByUsername(username)">
+        <div class="input-group-append">
+            <button ng-click="cr.searchCriticByUsername(username)" class="btn btn-outline-secondary" type="button">Search</button>
+        </div>
+    </div>
+    <h2 ng-hide="myVal">{{allCriticsHeading}}</h2>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Username</th>
+            <th scope="col">Email ID</th>
+            <th scope="col">Date of Birth</th>
+            <th scope="col">WebsiteUrl</th>
+            <th scope="col">Description</th>
+            <th scope="col">Follow</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat = "critic in critics">
+            <td>{{critic.firstName}} {{critic.lastName}}</td>
+            <td>{{critic.username}}</td>
+            <td>{{critic.email}}</td>
+            <td>{{critic.dob}}</td>
+            <td>{{critic.websiteUrl}}</td>
+            <td>{{critic.criticDescription}}</td>
+            <td><button type="button" class="btn btn-success" ng-click="cr.followThisCritic(critic.username)">Follow</button></td>
+        </tr>
+        </tbody>
+    </table>
+</div>

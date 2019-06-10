@@ -1,0 +1,32 @@
+<div class="container-fluid" ng-controller="EditTheatreController as et">
+    <h1>All Fans</h1>
+    <table class="table" width="100%">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Theatre Id</th>
+            <th scope="col">Theatre Name</th>
+            <th scope="col">Theatre location</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><input type="text" ng-model="theatreId"></td>
+            <td><input type="text" ng-model="theatreName"></td>
+            <td><input type="text" ng-model="theatreLocation"></td>
+            <td><button type="button" class="btn btn-success" ng-click="et.addTheatre(theatreId,theatreName,theatreLocation)">Add</button></td>
+        </tr>
+        <tr ng-show="eBox">
+            <td>{{tId.theatreId}}</td>
+            <td><input type="text" ng-model="theatreName1" placeholder="Theatre Name" value="{{tId.theatreName}}"></td>
+            <td><input type="text" ng-model="location1" placeholder="location" value="{{tId.location}}"></td>
+            <td><button type="button" class="btn btn-primary" ng-click="et.updateTheatre(tId.theatreId, theatreName1, location1)">Submit Changes</button></td>
+        </tr>
+        <tr ng-repeat = "theatre in theatres">
+            <td>{{theatre.theatreId}}</td>
+            <td>{{theatre.theatreName}}</td>
+            <td>{{theatre.location}}</td>
+            <td><button type="button" class="btn btn-success" ng-click="et.showEditBoxes(theatre)">Edit</button></td>
+            <td><button type="button" class="btn btn-danger" ng-click="et.deleteTheatre(theatre.theatreId)">Delete</button></td>
+        </tbody>
+    </table>
+</div>

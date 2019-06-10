@@ -1,0 +1,56 @@
+<div class="container-fluid" ng-controller="EditCriticController as ec">
+    <h1>All Fans</h1>
+    <table class="table" width="100%">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Critic ID</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Username</th>
+            <th scope="col">Password</th>
+            <th scope="col">Email ID</th>
+            <th scope="col">Date of Birth</th>
+            <th scope="col">Critic Description</th>
+            <th scope="col">Website URL</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><input type="text" ng-model="userId"></td>
+            <td><input type="text" ng-model="firstName"></td>
+            <td><input type="text" ng-model="lastName"></td>
+            <td><input type="text" ng-model="username"></td>
+            <td><input type="text" ng-model="password"></td>
+            <td><input type="text" ng-model="emailId"></td>
+            <td><input type="text" ng-model="dob"></td>
+            <td><input type="text" ng-model="criticDescription"></td>
+            <td><input type="text" ng-model="websiteUrl"></td>
+            <td><button type="button" class="btn btn-success" ng-click="ec.addCritic(userId, firstName, lastName, username, password, emailId, dob, criticDescription, websiteUrl)">Add</button></td>
+        </tr>
+        <tr ng-show="eBox">
+            <td>{{fId.userId}}</td>
+            <td><input type="text" ng-model="firstName1" placeholder="First Name" value="{{cId.firstName}}"></td>
+            <td><input type="text" ng-model="lastName1" placeholder="Last Name" value="{{cId.lastName}}"></td>
+            <td><input type="text" ng-model="username1" placeholder="Username" value="{{cId.username}}"></td>
+            <td><input type="text" ng-model="password1" placeholder="Password" value="{{cId.password}}"></td>
+            <td><input type="text" ng-model="emailId1" placeholder="Email ID" value="{{cId.email}}"></td>
+            <td><input type="text" ng-model="dob1" placeholder="Date of Birth" value="{{cId.dob}}"></td>
+            <td><input type="text" ng-model="criticDescription1" placeholder="Critic Description" value="{{cId.criticDescription}}"></td>
+            <td><input type="text" ng-model="websiteUrl1" placeholder="Website URL" value="{{cId.websiteUrl}}"></td>
+            <td><button type="button" class="btn btn-primary" ng-click="ec.updateCritic(firstName1, lastName1, username1, password1, emailId1, dob1, criticDescription1, websiteUrl1, cId.username)">Submit Changes</button></td>
+        </tr>
+        <tr ng-repeat = "critic in critics">
+            <td>{{critic.userId}}</td>
+            <td>{{critic.firstName}}</td>
+            <td>{{critic.lastName}}</td>
+            <td><button type="button" class="btn btn-primary" ng-click="ec.changeViewToCriticMyPage(critic.username, critic.dtype)">{{critic.username}}</button></td>
+            <td>{{critic.password}}</td>
+            <td>{{critic.email}}</td>
+            <td>{{critic.dob}}</td>
+            <td>{{critic.criticDescription}}</td>
+            <td>{{critic.websiteUrl}}</td>
+            <td><button type="button" class="btn btn-success" ng-click="ec.showEditBoxes(critic)">Edit</button></td>
+            <td><button type="button" class="btn btn-danger" ng-click="ec.deleteCritic(critic.username)">Delete</button></td>
+        </tbody>
+    </table>
+</div>

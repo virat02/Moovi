@@ -1,0 +1,29 @@
+<div class="container-fluid" ng-controller="MovieRecommendationsListingController as mrcl">
+    <h1>{{movieRecommendedHeading}}</h1>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Movie Name</th>
+            <th scope="col">Movie Overview</th>
+            <th scope="col">Movie Poster</th>
+            <th scope="col">Movie IMDB Rating</th>
+            <th scope="col">Movie revenue</th>
+            <th scope="col">Movie runtime</th>
+            <th scope="col">Release Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat = "movie in recommendedMovies | filter:movieName">
+            <td>{{movie.movieName}}</a></td>
+            <input ng-model="movieName" type="text" class="form-control" placeholder="Search Movie By Name"
+                   aria-label="Search Movie Name" aria-describedby="basic-addon2">
+            <td>{{movie.overview}}</td>
+            <td><img ng-src="{{movie.posterSRC}}" height="150px"></td>
+            <td>{{movie.imdbRating}}</td>
+            <td>${{movie.revenue}}</td>
+            <td>{{movie.runtime}} minutes</td>
+            <td>{{movie.releaseStatus}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

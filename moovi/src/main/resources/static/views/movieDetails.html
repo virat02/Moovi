@@ -1,0 +1,27 @@
+<link href="../css/details.css" rel="stylesheet">
+<body ng-controller="MovieDetailsController as mdc">
+<div class="background-image" ng-style="{'background-image':'url('movie.posterSRC')'}"></div>
+<div class="content">
+    <h1>{{movie.movieName}}</h1>
+    <div>
+        <h3>
+            Synopsis:
+        </h3>
+        <h6>
+            {{movie.overview}}
+        </h6>
+        <h3>
+            Cast:
+        </h3>
+        <div class="card-group">
+            <div class="card" ng-repeat="actor in cast">
+                <img class="card-img-top" src="{{actor.profilePicture}}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title"><a href="https://www.imdb.com/name/{{actor.imdbId}}">{{actor.actorName}}</a></h5>
+                    <p class="card-text"><small class="text-muted">Popularity Index: {{actor.actorPopularity}}</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>

@@ -1,0 +1,53 @@
+<div class="container-fluid" ng-controller="EditActorController as ea">
+    <h1>All Movies</h1>
+    <table class="table" width="100%">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Actor Id</th>
+            <th scope="col">Actor Name</th>
+            <th scope="col">Biography</th>
+            <th scope="col">Profile Picture</th>
+            <th scope="col">Date of Birth</th>
+            <th scope="col">Date of Death</th>
+            <th scope="col">Actor Popularity</th>
+            <th scope="col">ImdbId</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><input type="text" ng-model="actorId"></td>
+            <td><input type="text" ng-model="actorName"></td>
+            <td><input type="text" ng-model="biography"></td>
+            <td><input type="text" ng-model="profilePicture"></td>
+            <td><input type="text" ng-model="dob"></td>
+            <td><input type="text" ng-model="dod"></td>
+            <td><input type="text" ng-model="actorPopularity"></td>
+            <td><input type="text" ng-model="imdbId"></td>
+            <td><button type="button" class="btn btn-success" ng-click="ea.addActor(actorId, actorName, actorPopularity, biography, dob, dod, imdbId, profilePicture)">Add</button></td>
+        </tr>
+        <tr ng-show="eBox">
+            <td>{{aId.actorId}}</td>
+            <td><input type="text" ng-model="actorName1" placeholder="Actor Name" value="{{aId.actorName}}"></td>
+            <td><input type="text" ng-model="biography1" placeholder="Biography" value="{{aId.biography}}"></td>
+            <td><input type="text" ng-model="profilePicture1" placeholder="Profile Picture" value="{{aId.profilePicture}}"></td>
+            <td><input type="text" ng-model="dob1" placeholder="Date of Birth" value="{{aId.dob}}"></td>
+            <td><input type="text" ng-model="dod1" placeholder="Date of Death" value="{{aId.dod}}"></td>
+            <td><input type="text" ng-model="actorPopularity1" placeholder="Popularity" value="{{aId.actorPopularity}}"></td>
+            <td><input type="text" ng-model="imdbId1" placeholder="ImdbId" value="{{aId.imdbId}}"></td>
+            <td><button type="button" class="btn btn-primary" ng-click="ea.updateActor(aId.actorId, actorName1, actorPopularity1, biography1, dob1, dod1, imdbId1, profilePicture1)">Submit Changes</button></td>
+        </tr>
+        <tr ng-repeat = "actor in actors">
+            <td>{{actor.actorId}}</td>
+            <td>{{actor.actorName}}</a></td>
+            <td>{{actor.biography}}</td>
+            <td><img ng-src="{{actor.profilePicture}}" height="150px"></td>
+            <td>{{actor.dob}}</td>
+            <td>{{actor.dod}}</td>
+            <td>{{actor.actorPopularity}}</td>
+            <td><a href="http://www.imdb.com/name/{{actor.imdbId}}">{{actor.indbId}} IMDb</a></td>
+            <td><button type="button" class="btn btn-success" ng-click="ea.showEditBoxes(actor)">Edit</button></td>
+            <td><button type="button" class="btn btn-danger" ng-click="ea.deleteActor(actor.actorId)">Delete</button></td>
+        </tr>
+        </tbody>
+    </table>
+</div>

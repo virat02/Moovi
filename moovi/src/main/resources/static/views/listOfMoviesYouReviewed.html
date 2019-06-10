@@ -1,0 +1,42 @@
+<div class="container-fluid" ng-controller="MovieRecommendedController as mrc">
+    <h1>All Movies Reviewed By You</h1>
+    <br>
+    <br>
+    <br>
+    <h2>{{allMoviesRecommendedHeading}}</h2>
+    <div class="container">
+    <div>
+    <table class="floatLeft">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">Movie Name</th>
+                <th scope="col">Movie Poster</th>
+                <th scope="col">Movie IMDB Rating</th>
+                <th scope="col">Movie revenue</th>
+            </tr>
+            </thead>
+            <tr ng-repeat = "movie in movies">
+                <td><a href="#/details/{{movie.movieName}}">{{movie.movieName}}</a></td>
+                <td><img ng-src="{{movie.posterSRC}}" height="150px"></td>
+                <td>{{movie.imdbRating}}</td>
+                <td>${{movie.revenue}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+    <table class="floatRight">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Movie Review By You</th>
+            <th scope="col">Movie Rating by you</th>
+        </tr>
+        </thead>
+        <tr ng-repeat = "r in reviews">
+            <td>{{r.review}}</td>
+            <td>{{r.rating}}</td>
+        </tr>
+    </table>
+    </div>
+    </div>
+</div>

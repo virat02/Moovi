@@ -1,0 +1,38 @@
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<div class="container">
+
+    <div class="row" style="margin-top:20px" ng-controller="LoginController as login">
+        <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+            <form role="form">
+                <fieldset>
+                    <h2>Please Sign In</h2>
+                    <hr class="colorgraph">
+                    <div class="form-group">
+                        <input ng-model="username" type="text" name="Username" id="username" class="form-control input-lg" placeholder="Enter your username">
+                    </div>
+                    <div class="form-group">
+                        <input ng-model="password" type="password" name="password" id="password" class="form-control input-lg" placeholder="Enter your Password">
+                    </div>
+                    <div class="form-group">
+                        <select ng-model="userType" type="text" name="Type Of User" id="userType" class="form-control input-lg" placeholder="Type Of User">
+                            <option value="" selected data-default>Choose your type of User</option>
+                            <option value="fan">Fan</option>
+                            <option value="critic">Critic</option>
+                            <option value="adrecruiter">Advertisement Recruiter</option>
+                            <option value="theatremanager">Theatre Manager</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <input ng-click="login.checkIfValidUser(username, password, userType)" type="submit" class="btn btn-lg btn-success btn-block" value="Sign In">
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+
+</div>

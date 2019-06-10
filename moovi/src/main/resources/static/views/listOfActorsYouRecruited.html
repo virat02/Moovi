@@ -1,0 +1,26 @@
+<div class="container-fluid" ng-controller="ActorsRecruitedController as acr">
+    <h1>Actors Recruited</h1>
+    <h2>{{allActorsHeading}}</h2>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Actor Name</th>
+            <th scope="col">Actor Biography</th>
+            <th scope="col">Actor Picture</th>
+            <th scope="col">Actor birth date</th>
+            <th scope="col" ng-show="usT==='adrecruiter' || usT==='admin'"> </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat = "actor in actors | filter:actorName">
+            <td>{{actor.actorName}}</td>
+            <input ng-model="actorName" type="text" class="form-control" placeholder="Search Actor By Name"
+                   aria-label="Search Actor Name" aria-describedby="basic-addon2">
+            <td>{{actor.biography}}</td>
+            <td><img ng-src="{{actor.profilePicture}}" height="150px"></td>
+            <td>{{actor.dob}}</td>
+            <td><button type="button" class="btn btn-danger" ng-show="usT==='adrecruiter' || usT==='admin'" ng-click="acr.deleteActor(actor.actorId)">Remove</button></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
